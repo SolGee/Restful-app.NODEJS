@@ -1,0 +1,25 @@
+{
+  "name": "proyecto1",
+  "version": "1.0.0",
+  "description": "Ejercicio sobre npm",
+  "main": "index.js",
+  "dependencies": {
+    "d3-time": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SolGee/Restful-app.NODEJS.git"
+  },
+  "keywords":["tiempo", "calculadora de tiempo"],
+  "author": "Solanyi Sandoval",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SolGee/Restful-app.NODEJS/issues"
+  },
+  "homepage": "https://github.com/SolGee/Restful-app.NODEJS#readme"
+}

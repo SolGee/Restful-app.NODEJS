@@ -1,5 +1,14 @@
 const http = require('http');
-const server = http.createServer((req, res,) => {
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, {"Content-Type": "text/html"});
+    res.write(`<h1>Hola a todos</h1> </br>`);
+    res.write(`<p> Mi sitio web </p>`);
+    res.end();
+}).listen(5050);
+
+
+/*const server = http.createServer((req, res,) => {
     if (req.url === '/'){
         res.write('Hola desde nodejs | ');
         res.write('Estoy entendiendo');
