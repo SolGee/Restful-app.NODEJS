@@ -3,6 +3,8 @@ const app = express();
 // Se crea una variable de ambiente que cambiara el servidor de acuerdo al que se le asigne. De lo contrario usara el servidor 3030
 const port = process.env.PORT || 3030;
 
+app.use(express.json());
+
 const doggos = [
   {
     id: 0,
@@ -73,14 +75,27 @@ app.get('/api/doggos/', (req, res) => {
   res.send(doggos);
 })
 
-app.get('api/doggos/:breed', (req,res) => {
-  const dog = doggos.find((dog) => {dog.breed === req.params.breed});
-  console.log(dog);
+app.get('/api/doggos/:breed', (req,res) => {
+  const dog = doggos.find((dog) => {
+    return dog.breed === req.params.breed;
+  });
+  
   if(!dog){
-    res.status(404).send('No encontramos ningún perro de ese tamaño');
+    res.status(404).send('No encontramos ningún perro de esa raza');
   }else{
     res.send(dog);
   }
+})
+
+app.post('/api/doggos/', (req, res) =>{
+  const dogId = doggos.length;
+  const dogge =  {
+    id: dogId,
+    size: req.body.size,
+    breed: req.body.breed
+  }
+  doggos.push(dogge);
+  res.status(201).send(dogge);
 })
 
 app.listen(port, console.log(`Escuchando en servidor ${port}`));
