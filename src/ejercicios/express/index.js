@@ -98,4 +98,19 @@ app.post('/api/doggos/', (req, res) =>{
   res.status(201).send(dogge);
 })
 
+app.post('/api/doggos2/', (req, res) => {
+  if(!req.body.breed || req.body.breed.length < 3){
+    res.status(400).send('Introduce la raza correcta')
+    return
+  }
+    const dogId = doggos.length;
+    const dogge =  {
+      id: dogId,
+      size: req.body.size,
+      breed: req.body.breed  
+} 
+  doggos.push(dogge);
+  res.status(201).send(dogge);
+})
+
 app.listen(port, console.log(`Escuchando en servidor ${port}`));
